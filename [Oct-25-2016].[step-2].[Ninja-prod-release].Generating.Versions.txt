@@ -1,0 +1,65 @@
+So once the chnages from the release branch has been merged to the `master`; we generate the Versions required for the release to PROD.
+This is done in 2 steps, getting
+	- the Minor versions and 
+	- the Major versions
+	
+For the Minor versions we build the TP-testprod builds 
+For the Major versions we build the actual PROD builds [prod_www_build.save + prod_platform_build.save]
+-------Comments in the Build Ticket-------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*{color:#0000FF}TP Release Day{color}*
+- after getting a go ahead from the TP QE folks; we merge the *release-branch* (BUILD-4427) to *master* 
+- After this we work on generating the Versions for our Change (CCP-53378), which also includes building-n-deploying the new distribution to the various servers in *WWW/Platform/Workflow* .
+*Release-runlist* :
+-- {color:#00F}Web2print{color} :
+--- Pull request reviewed by _James Nui_ with: https://gh.internal.shutterfly.com/shutterfly/tp-web2print/pull/73
+--- https://gh.internal.shutterfly.com/shutterfly/tp-web2print/commits/master
+{code}
+6cbeec586ad9ffc79b6cea0df1a57d0990370917
+{code}
+--- Building the Verions: https://china.stage.shutterfly.com/view/TP-TestProd-Web2print/job/testprod_web2print_compile/60/console
+{code}
+tagName			:	*/master
+{code}
+{code}
+14:11:58 + VERSION_IN_POM=1.5.0
+14:11:58 + VERSION=1.5.0-6cbeec
+14:11:58 + mvn versions:set -DnewVersion=1.5.0-6cbeec
+{code}
+--- Building the Distribution with the correct version using: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_war/34/console
+https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_war/34/parameters/
+{code}
+Environment		:  prod
+Release			:  1.5.0-6cbeec
+{code}
+---- Deployed to PROD using: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_deploy/26/parameters/
+{code}
+Environment		:  prod
+Release			:  1.5.0-6cbeec
+Project			:  web2print
+CCP				:  CCP-53378
+{code}
+------------CCP-53378------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------CCP-53378------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*{color:#00F}WEB2PRINT{color}*
+Run https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_war
+* *Environment*	: prod
+* *Release*		: *1.5.0-6cbeec*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_deploy
+* Environment	: prod
+* *Release*	: *1.5.0-6cbeec*
+* *Project*		: *web2print*
+* *CCP*		: *CCP-53378*
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+1.5.0-d80084
+
+*{color:#0000FF}Web2Print{color}*
+https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_deploy/
+Environment:  prod
+Release:  1.5.0-d80084
+Project:  web2print
+CCP:  *CCP-53378*
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------

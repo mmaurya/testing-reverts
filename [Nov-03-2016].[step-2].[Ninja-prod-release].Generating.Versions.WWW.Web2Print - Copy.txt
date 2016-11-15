@@ -1,0 +1,159 @@
+-bash-4.1$ /dist/sfsite/tomcatc start
+SFLY: Using prod properties
+ Starting up OrderGateway Tomcat Config Service...
+  Checking for existing processes:
+  No existing Tomcat Config running
+  Starting Tomcat Config
+Tomcat started.
+-bash-4.1$ hostname
+ogateway14
+
+
+
+
+/dist/sfsite/admin/gwConfigDB.groovy
+
+
+
+
+
+
+-- https://gh.internal.shutterfly.com/shutterfly/tp-www/commits/master
+{code}
+69f972f2eae258de64e3d015af69370c45138636
+{code}
+
+-- TestProd:	https://china.stage.shutterfly.com/view/TP-testprod-WWW/job/testprod_www_unit_tests/157/parameters/
+{code}
+Environment		:	testprod
+tagName			:	*/master
+{code}
+{code}
+Git Version: 69f972f
+{code}
+-- https://www.testprod.tinyprints.com/version.php				*www_testprod_85-69f972f*
+Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_www_build.save/31/console
+{code}
+Project			:  www
+Env				:  prod
+{code}
+{code}
+12:10:43 + Version=31-69f972f
+12:11:12 + echo 31-69f972f
+12:11:56 + echo www_prod_31-69f972f
+12:11:56 www_prod_31-69f972f
+{code}
+-- Deploy WWW: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/
+TP Serverlist/Build Enable: https://servers.internal.tinyprints.com/
+https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/139/parameters/    +    https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/140/
+{code}
+Project			:  www
+Version			:  31-69f972f
+Env				:  prod
+{code}
+Switching SingleHost using: https://build.stage.shutterfly.com/job/prod_switch/40/parameters/
+{code}
+Project			:	www
+Env				:	single
+Version			:	31-69f972f
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53564
+{code}
+
+Switching WWW: https://build.stage.shutterfly.com/job/prod_switch/45/parameters/ $1~44
+{code}
+Project			:	www
+Env				:	prod
+Version			:	31-69f972f
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53564
+{code}
+https://www.tinyprints.com/version.php			www_prod_31-69f972f
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://gh.internal.shutterfly.com/shutterfly/tp-web2print/commits/master
+{code}
+a260a85e8a2a492dfb705e3d23310c09eb246334
+{code}
+Building the Verions: https://china.stage.shutterfly.com/view/TP-TestProd-Web2print/job/testprod_web2print_compile/63/parameters/
+{code}
+tagName			:	*/master
+{code}
+{code}
+11:53:34 + VERSION_IN_POM=1.5.0
+11:53:34 + VERSION=1.5.0-a260a8
+11:53:34 + mvn versions:set -DnewVersion=1.5.0-a260a8
+{code}
+
+Building the Distribution with the correct version using: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_war/35/console
+{code}
+Environment		:  prod
+Release			:  1.5.0-a260a8
+{code}
+
+Deploy https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_deploy/27/console
+{code}
+Environment		:  prod
+Release			:  1.5.0-a260a8
+Project			:  web2print
+CCP				:  CP-52898
+{code}
+
+
+------------CCP-53564------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------CCP-53564------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*{color:#00F}WEB2PRINT{color}*
+Run https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_war
+* *Environment*	: prod
+* *Release*		: *1.5.0-a260a8*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_web2print_deploy
+* Environment	: prod
+* *Release*	: *1.5.0-a260a8*
+* *Project*		: *web2print*
+* *CCP*		: *CCP-52898*
+
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_www_build.save/
+* Project		: *www*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/
+* Project		: *www*
+* Version		: *31-69f972f*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch
+* Env		: *prod*
+* Version		: *31-69f972f*
+* Project		: *www*
+* Restart		: [check]
+* CCP		: *CCP-53564*
+
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+-- SingleHost switching is usually done using: https://build.stage.shutterfly.com/job/prod_switch/
+https://build.stage.shutterfly.com/job/prod_switch/
+28-4b09e50
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+web2print: 1.5.0-6cbeec ; www: 30-858c526
+
+*{color:#0000FF}Web2Print{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *1.5.0-6cbeec*
+* Project : *web2print*
+* Restart : [check]
+* CCP : *CCP-53564*
+
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *30-858c526*
+* Project : *www*
+* Restart : [check]
+* CCP : *CCP-53564*

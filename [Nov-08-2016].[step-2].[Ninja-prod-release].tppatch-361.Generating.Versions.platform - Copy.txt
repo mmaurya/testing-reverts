@@ -1,0 +1,88 @@
+237 Harbor Way, South San Francisco, CA 94080
+
+650-271-9846 is the contact number
+
+
+
+
+
+- https://china.stage.shutterfly.com/view/TP-testprod-Platform/job/testprod_platform_unit_tests/44/parameters/
+{code}
+Environment		:	testprod
+tagName			:	origin/TPPATCH-361
+{code}
+
+- https://gh.internal.shutterfly.com/shutterfly/tp-platform/commits/master
+{code}
+f72528ca9ef628c11e1675109657acc21afddd91
+{code}
+- Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_platform_build.save/23/console
+{code}
+14:35:36 + Version=24-f72528c
+14:36:00 + echo platform_prod_24-f72528c
+14:36:00 platform_prod_24-f72528c
+{code}
+- Deploy: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/52/console    +    https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/53/console
+{code}
+Project			:  platform
+Environment		:  prod
+Version			:  24-f72528c
+{code}
+
+https://build.stage.shutterfly.com/job/prod_switch/46/console
+{code}
+Project			:	platform
+Env				:	single
+Version			:	24-f72528c
+Servers			:	
+Restart			:	<option is checked>
+CCP				:	CCP-53644
+{code}
+
+
+Switching Platform: https://build.stage.shutterfly.com/job/prod_switch/47/parameters/
+{code}
+Project			:	platform
+Env				:	prod
+Version			:	24-f72528c
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53644
+{code}
+
+------------CCP-53644------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------CCP-53644------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*{color:#0000FF}Platform{color}*
+Run Jenkins job: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_build.save/
+* Project		: *platform*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/
+* Project		: *platform*
+* Env		: *prod*
+* Version		: *24-f72528c*
+
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch/
+* Env		: *prod*
+* Version		: *24-f72528c*
+* Project		: *platform*
+* Restart		: [check]
+* CCP		: *CCP-53644*
+
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+-- SingleHost switching is usually done using: https://build.stage.shutterfly.com/job/prod_switch/
+https://build.stage.shutterfly.com/job/prod_switch/22/console
+24-f72528c
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+platform: 23-823d158
+
+*{color:#0000FF}Platform{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *23-823d158*
+* Project : *platform*
+* Restart : [check]
+* CCP : *CCP-53644*

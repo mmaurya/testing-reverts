@@ -1,0 +1,1035 @@
+login as: mmaurya
+mmaurya@172.25.19.16's password:
+Last login: Thu Oct 20 12:48:08 2016 from 172.20.200.236
+                       ,.
+           .           :%%%.    .%%%.
+       __%%%(\        `%%%%%   .%%%%%
+     /a  ^  '%        %%%% %: ,%  %%"`
+    '__..  ,'%     .-%:     %-'    %
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-3.2$ sudo su - distro
+Password:
+0 ;) distro@wildcat ~ $ ssh fim201.internal.tinyprints.com
+Last login: Wed Oct 19 13:15:17 2016 from 172.26.190.143
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ vi /home/distro/.ssh/known_hosts
+[distro@fim201 ~]$ cd ~/.ssh/
+[distro@fim201 .ssh]$ ls
+authorized_keys
+[distro@fim201 .ssh]$ vi authorized_keys
+[distro@fim201 .ssh]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02
+ssh: connect to host tp-slave02 port 22: Connection refused
+255 ;( distro@wildcat ~ $ ssh
+usage: ssh [-1246AaCfgkMNnqsTtVvXxY] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-e escape_char] [-F configfile]
+           [-i identity_file] [-L [bind_address:]port:host:hostport]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-R [bind_address:]port:host:hostport] [-S ctl_path]
+           [-w tunnel:tunnel] [user@]hostname [command]
+255 ;( distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Wed Oct 19 18:17:03 2016 from 172.26.190.222
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ vi /home/distro/.ssh/known_hosts
+0 ;) distro@tp-slave02 ~ $ cd /home/distro/.ssh/
+0 ;) distro@tp-slave02 ~/.ssh $ ls
+authorized_keys  id_rsa  id_rsa.pub  known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ ls -ltra
+total 196
+-rw-------  1 distro distro   1675 Oct 23  2015 id_rsa
+-rw-r--r--  1 distro distro    396 Oct 23  2015 id_rsa.pub
+-rw-------  1 distro distro   2687 May  4 12:37 authorized_keys
+-rw-r--r--  1 distro distro 178600 Oct 13 14:39 known_hosts
+drwx------ 15 distro distro   4096 Oct 20 17:08 ..
+drwx------  2 distro distro   4096 Oct 20 17:08 .
+0 ;) distro@tp-slave02 ~/.ssh $ cd
+0 ;) distro@tp-slave02 ~ $ ls
+Client.pm  composer.json  composer.lock  dwoon_deploy_tp  jenkins  memcache_flush_alt.php  memcache_flush.php  prod_tp.config.xml.gen  sitewide.js  switch_tp  tinybox
+0 ;) distro@tp-slave02 ~ $ mkdir mm
+0 ;) distro@tp-slave02 ~ $ cd mm/
+0 ;) distro@tp-slave02 ~/mm $ pwd
+/home/distro/mm
+0 ;) distro@tp-slave02 ~/mm $ cp /home/distro/.ssh/known_hosts .
+0 ;) distro@tp-slave02 ~/mm $ ls
+known_hosts
+0 ;) distro@tp-slave02 ~/mm $ cd /home/distro/.ssh/
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 16:19:34 2016 from xbuild08.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ls
+adminserver  appserver  config    downloadserver   emailserver     idownloadserver  indexserver  META-INF   omstestserver  renderfarminterfaceserver  searchserver      uploadserver
+apiserver    ccserver   csserver  edownloadserver  firehoseserver  imageserver      mediaserver  multicore  orderserver    scripts                    uploadcoreserver  wsserver
+-bash-4.1$ pwd
+/home/distro
+-bash-4.1$ mkdir mm
+-bash-4.1$ cd mm/
+-bash-4.1$  cp /home/distro/.ssh/known_hosts .
+-bash-4.1$ vi /home/distro/.ssh/known_hosts
+-bash-4.1$ vi /home/distro/.ssh/known_hosts
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:06:36 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ cd /home/distro/.ssh/
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ hostname
+tp-slave02
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ pwd
+/home/distro/.ssh
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:11:59 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ cd mm/
+-bash-4.1$ ls
+known_hosts
+-bash-4.1$ cd  /home/distro/.ssh/
+-bash-4.1$ vi known_hosts
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:32:04 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ ssh fim201.internal.tinyprints.com
+Warning: the RSA host key for 'fim201.internal.tinyprints.com' differs from the key for the IP address '10.70.34.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:365
+Matching host key in /home/distro/.ssh/known_hosts:428
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:03:41 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:31:24 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ssh fim201.internal.tinyprints.com
+Warning: the RSA host key for 'fim201.internal.tinyprints.com' differs from the key for the IP address '10.70.34.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:217
+Matching host key in /home/distro/.ssh/known_hosts:266
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:37:07 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh fim201.internal.tinyprints.com
+Last login: Thu Oct 20 17:37:33 2016 from 172.18.18.21
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:37:29 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ssh fim210.internal.tinyprints.com
+Last login: Wed Oct  5 15:06:52 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:37:02 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ ssh fim210.internal.tinyprints.com
+Last login: Thu Oct 20 17:44:23 2016 from 172.18.18.21
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ ssh fim210.internal.tinyprints.com
+Last login: Thu Oct 20 17:44:34 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh fim210.internal.tinyprints.com
+Last login: Thu Oct 20 17:44:41 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:44:20 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ cd  /home/distro/.ssh/
+-bash-4.1$ vi known_hosts
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:45:42 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ssh fim225.internal.tinyprints.com
+The authenticity of host 'fim225.internal.tinyprints.com (10.70.29.116)' can't be established.
+RSA key fingerprint is 84:51:e4:9a:a6:f7:97:d6:3e:bd:db:d0:26:0f:6c:e6.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'fim225.internal.tinyprints.com' (RSA) to the list of known hosts.
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:229
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Wed Oct 19 13:52:45 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exity
+-bash: exity: command not found
+[distro@fim225 ~]$ esit
+-bash: esit: command not found
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+127 ;( distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:44:30 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:46:27 2016 from 172.18.18.21
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:46:44 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:46:50 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:46:55 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ cd /home/distro/.ssh/
+0 ;) distro@tp-slave02 ~/.ssh $ vi known_hosts
+0 ;) distro@tp-slave02 ~/.ssh $ ssh fim225.internal.tinyprints.com
+The authenticity of host 'fim225.internal.tinyprints.com (10.70.29.116)' can't be established.
+RSA key fingerprint is 84:51:e4:9a:a6:f7:97:d6:3e:bd:db:d0:26:0f:6c:e6.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'fim225.internal.tinyprints.com' (RSA) to the list of known hosts.
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:47:05 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~/.ssh $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:47:57 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~/.ssh $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:48:07 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~/.ssh $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:46:21 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:229
+Matching host key in /home/distro/.ssh/known_hosts:266
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:48:13 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:46:39 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ ssh fim225.internal.tinyprints.com
+Warning: the RSA host key for 'fim225.internal.tinyprints.com' differs from the key for the IP address '10.70.29.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:383
+Matching host key in /home/distro/.ssh/known_hosts:429
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:48:25 2016 from 172.18.18.21
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim225.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 91F41W1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim225 ~]$ cd /home/distro/.ssh/
+[distro@fim225 .ssh]$ ls
+authorized_keys
+[distro@fim225 .ssh]$ exit
+logout
+Connection to fim225.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ ssh fim201.internal.tinyprints.com
+Warning: the RSA host key for 'fim201.internal.tinyprints.com' differs from the key for the IP address '10.70.34.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:365
+Matching host key in /home/distro/.ssh/known_hosts:428
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:37:42 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+0 ;) distro@tp-slave02 ~ $ exit
+logout
+Connection to tp-slave02.internal.tinyprints.com closed.
+0 ;) distro@wildcat ~ $ hoard
+-bash: hoard: command not found
+127 ;( distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:51:50 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ ssh fim201.internal.tinyprints.com
+Warning: the RSA host key for 'fim201.internal.tinyprints.com' differs from the key for the IP address '10.70.34.116'
+Offending key for IP in /home/distro/.ssh/known_hosts:216
+Matching host key in /home/distro/.ssh/known_hosts:265
+Are you sure you want to continue connecting (yes/no)? yes
+Last login: Thu Oct 20 17:53:28 2016 from 172.18.148.109
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim201.internal.tinyprints.com:
+ Dell Inc. PowerEdge R630, Serial 1HR6SD2
+ Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz x 48 cores , 46.90 GB RAM
+ CentOS 6.7
+
+
+[distro@fim201 ~]$ exit
+logout
+Connection to fim201.internal.tinyprints.com closed.
+-bash-4.1$ exiyt
+-bash: exiyt: command not found
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+127 ;( distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:53:43 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ cd  /home/distro/.ssh/
+-bash-4.1$ vi known_hosts
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh hoard
+Last login: Thu Oct 20 17:54:56 2016 from wildcat.stage.shutterfly.com
+                       ,.
+           .           :%%%.    .%%%.        ________________________
+       __%%%(\        `%%%%%   .%%%%%       |                        |
+     /a  ^  '%        %%%% %: ,%  %%"`      | GUESS WHAT DAY IT IS?! |
+    '__..  ,'%     .-%:     %-'    %        |________________________|
+     ~~""%:. `     % '          .   `.
+         %% % `   %%           .%:  . \.
+          %%:. `-'   `        .%% . %: :\
+          %(%,%..."   `%,     %%'   %% ) )
+           %)%%)%%'   )%%%.....- '   "/ (
+           %a:f%%\ % / \`%  "%%% `   / \))
+            %(%'  % /-. \      '  \ |-. '.   Production System.
+            `'    |%   `()         \|  `()   Authorized Personnel Only.
+                  ||    /          ()   /
+                  ()   0            |  o     Unauthorized access to this
+                   \  /\            o /      computer system is prohibited.
+                   o  `            /-|
+                ,-/ `           ,-/          Activities monitored and logged.
+-bash-4.1$ cd  /home/distro/.ssh/
+-bash-4.1$ vi known_hosts
+-bash-4.1$ vi known_hosts
+-bash-4.1$ ssh  fim210.internal.tinyprints.com
+Last login: Thu Oct 20 17:44:53 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+-bash-4.1$ exit
+logout
+Connection to hoard closed.
+0 ;) distro@wildcat ~ $ ssh tp-slave02.internal.tinyprints.com
+Last login: Thu Oct 20 17:52:05 2016 from 172.25.19.16
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for tp-slave02.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial GY4TFZ1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.22 GB RAM
+ CentOS 6.3
+
+
+0 ;) distro@tp-slave02 ~ $ ssh  fim210.internal.tinyprints.com
+Last login: Thu Oct 20 18:06:42 2016 from 172.18.18.21
+
+
+            __     __
+           /  \~~~/  \
+     ,----(     ..    )  ___ _ _  _ _   _ ___  ____ _ _  _ ___ ____
+    /      \__     __/    |  | |\ |  \_/  |__] |__/ | |\ |  |  [__
+   /|         (\  |(      |  | | \|   |   |    |  \ | | \|  |  ___]
+  ^ \   /___\  /\ |
+     |__|   |__|-"
+
+
+SysInfo for fim210.internal.tinyprints.com:
+ Dell Inc. PowerEdge R620, Serial 3L58RV1
+ Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz x 24 cores , 47.19 GB RAM
+ CentOS 6.7
+
+
+[distro@fim210 ~]$ exitr
+-bash: exitr: command not found
+[distro@fim210 ~]$ exit
+logout
+Connection to fim210.internal.tinyprints.com closed.
+127 ;( distro@tp-slave02 ~ $

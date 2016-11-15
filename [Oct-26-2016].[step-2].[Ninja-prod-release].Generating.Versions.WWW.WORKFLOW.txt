@@ -1,0 +1,137 @@
+-- https://gh.internal.shutterfly.com/shutterfly/tp-www/commits/master
+{code}
+894a99e1d8d11bf4d447b91667114978ae6278af	TPPATCH-354
+858c526b1a99a059f66fecb249a39a3008a279d7	TPPATCH-351
+{code}
+
+-- TestProd:	https://china.stage.shutterfly.com/view/TP-testprod-WWW/job/testprod_www_unit_tests/156/console
+{code}
+Environment		:	testprod
+tagName			:	*/master
+{code}
+{code}
+Git Version: 858c526
+{code}
+-- https://www.testprod.tinyprints.com/version.php				*www_testprod_84-858c526*
+Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_www_build.save/30/console
+{code}
+Project			:  www
+Env				:  prod
+{code}
+{code}
+14:27:25 + Version=30-858c526
+14:27:49 + echo 30-858c526
+14:28:33 + echo www_prod_30-858c526
+14:28:33 www_prod_30-858c526
+{code}
+-- Deploy WWW: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/133/console    +   https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/138/parameters/
+TP Serverlist/Build Enable: https://servers.internal.tinyprints.com/
+{code}
+Project			:  www
+Version			:  30-858c526
+Env				:  prod
+{code}
+Switching SingleHost using: https://build.stage.shutterfly.com/job/prod_switch/35/parameters/
+{code}
+Project			:	www
+Env				:	single
+Version			:	30-858c526
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53444
+{code}
+
+Switching WWW: https://build.stage.shutterfly.com/job/prod_switch/36/console    +    https://build.stage.shutterfly.com/job/prod_switch/36/parameters/
+{code}
+Project			:	www
+Env				:	prod
+Version			:	30-858c526
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53444
+{code}
+
+Deploy Workflow: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/136/
+{code}
+Project			:	www
+Version			:	30-858c526
+Env				:	workflow
+{code}
+Switching Workflow: https://build.stage.shutterfly.com/job/prod_switch/34/parameters/
+{code}
+Project			:	www
+Env				:	workflow
+Version			:	30-858c526
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53444
+{code}
+
+
+https://www.tinyprints.com/version.php			www_prod_30-858c526
+
+------------CCP-53444------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------CCP-53444------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_www_build.save/
+* Project		: *www*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/
+* Project		: *www*
+* Version		: *30-858c526*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch
+* Env		: *prod*
+* Version		: *30-858c526*
+* Project		: *www*
+* Restart		: [check]
+* CCP		: *CCP-53444*
+
+*{color:#0000FF}Workflow{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch/
+* Env		: *prod*
+* Version		: *30-858c526*
+* Project		: *workflow*
+* Restart		: [check]
+* CCP		: *CCP-53444*
+
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+-- SingleHost switching is usually done using: https://build.stage.shutterfly.com/job/prod_switch/
+https://build.stage.shutterfly.com/job/prod_switch/
+28-4b09e50
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+www: 28-4b09e50; workflow: 28-4b09e50
+
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *28-4b09e50*
+* Project : *www*
+* Restart : [check]
+* CCP : *CCP-53444* 
+
+*{color:#0000FF}Workflow{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *28-4b09e50*
+* Project : *workflow*
+* Restart : [check]
+* CCP : *CCP-53444*
+
+
+Please fill out the information below:
+
+Problem statement
+TPPATCH-351: Right now there are some images taking too longer to render the filter on in AFS for the 5 second timeout, if we move from 5 to 20 seconds we will handle a lot more of them. The value was recently changed from the default of 120 seconds down to 5 to address site stability concerns in the event of an AFS problem like we saw during Q4 Readiness Load Testing.
+TPPATCH-354: This will caused increase customer contacts from cards that do not make it to their intended destinations as well as reprints and recipients getting their cards later than expected, harming brand goodwill and increasing costs.
+Functional impact:
+
+Revenue impact
+Why this was not detected earlier
+The scope of the change, and who reviewed the implementation
+How the change was tested, and who performed the testing
+A list of dependents and dependencies of the component being change

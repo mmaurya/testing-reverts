@@ -1,0 +1,309 @@
+So once the chnages from the release branch has been merged to the `master`; we generate the Versions required for the release to PROD.
+This is done in 2 steps, getting
+	- the Minor versions and 
+	- the Major versions
+	
+For the Minor versions we build the TP-testprod builds 
+For the Major versions we build the actual PROD builds [prod_www_build.save + prod_platform_build.save]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://gh.internal.shutterfly.com/shutterfly/tp-web2print/commits/master
+d80084f00d1ae10284070dcf8637321ae556d80c
+
+Nothing has changed, so we are not building the Web2Print env.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://gh.internal.shutterfly.com/shutterfly/tp-www/commits/master
+{code}
+4b09e50071165d01aa90b32fc1c90c0117f30b27
+{code}
+Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_www_build.save/28/console
+{code}
+Project			:  www
+Env				:  prod
+{code}
+{code}
+16:12:49 + echo 28-4b09e50
+16:13:32 + echo www_prod_28-4b09e50
+16:13:32 www_prod_28-4b09e50
+{code}
+
+Deploy WWW: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/128/console + https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/131/parameters/
++ https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/119/console
+TP Serverlist/Build Enable: https://servers.internal.tinyprints.com/
+{code}
+Project			:  www
+Version			:  28-4b09e50
+Env				:  prod
+{code}
+
+Switching WWW: https://build.stage.shutterfly.com/job/prod_switch/33/parameters/
+{code}
+Project			:	www
+Env				:	prod
+Version			:	28-4b09e50
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+
+Deploy Workflow: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/129/parameters/ + https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/130/parameters/
+{code}
+Project			:	www
+Version			:	28-4b09e50
+Env				:	workflow
+{code}
+Switching Workflow: https://build.stage.shutterfly.com/job/prod_switch/34/parameters/
+{code}
+Project			:	www
+Env				:	workflow
+Version			:	28-4b09e50
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://gh.internal.shutterfly.com/shutterfly/tp-platform/commits/master
+{code}
+823d1584c9a2de7802be386106f0b96329027c19
+{code}
+
+Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_platform_build.save/23/console
+{code}
+16:14:11 + Version=23-823d158
+16:14:22 + echo platform_prod_23-823d158
+16:14:22 platform_prod_23-823d158
+{code}
+
+Deploy:  https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/50/console + https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/51/console
+{code}
+Project			:  platform
+Environment		:  prod
+Version			:  23-823d158
+{code}
+
+Switching Platform: https://build.stage.shutterfly.com/job/prod_switch/32/parameters/
+{code}
+Project			:	platform
+Env				:	prod
+Version			:	23-823d158
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+https://www.tinyprints.com/version.php		*www_prod_28-4b09e50*
+
+
+
+------------SingleHost------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------SingleHost------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SingleHost switching:
+https://build.stage.shutterfly.com/job/prod_switch/30/parameters/
+{code}
+platform
+single
+VERSION: 23-823d158
+CCP: CCP-53290
+{code}
+
+https://build.stage.shutterfly.com/job/prod_switch/31/parameters/
+{code}
+www
+single
+VERSION: 28-4b09e50
+CCP: CCP-53290
+{code}
+------------CCP-53290------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------CCP-53290------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_www_build.save/
+* Project		: *www*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/
+* Project		: *www*
+* Version		: *28-4b09e50*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch
+* Env		: *prod*
+* Version		: *28-4b09e50*
+* Project		: *www*
+* Restart		: [check]
+* CCP		: *CCP-53290*
+
+*{color:#0000FF}Platform{color}*
+Run Jenkins job: https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_build.save/
+* Project		: *platform*
+* Env		: *prod*
+
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/
+* Project		: *platform*
+* Env		: *prod*
+* Version		: *23-823d158*
+
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch/
+* Env		: *prod*
+* Version		: *23-823d158*
+* Project		: *platform*
+* Restart		: [check]
+* CCP		: *CCP-53290*
+
+*{color:#0000FF}Workflow{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/job/prod_switch/
+* Env		: *prod*
+* Version		: *28-4b09e50*
+* Project		: *workflow*
+* Restart		: [check]
+* CCP		: *CCP-53290*
+
+
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+--------------Validations---------------------------------------------------------------------------------------------------------------------------
+-- SingleHost switching is usually done using: https://build.stage.shutterfly.com/job/prod_switch/
+https://build.stage.shutterfly.com/job/prod_switch/22/console
+22-2c6b4c4
+https://build.stage.shutterfly.com/job/prod_switch/23/
+26-c598910
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+--------------Roll Back------------------------------------------------------------------------------------------------------------------------------
+platform: 22-2c6b4c4; www: 27-65368f0; workflow: 22-2c6b4c4
+
+*{color:#0000FF}WWW{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *27-65368f0*
+* Project : *www*
+* Restart : [check]
+* CCP : *CCP-53290* 
+
+*{color:#0000FF}Platform{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *22-2c6b4c4*
+* Project : *platform*
+* Restart : [check]
+* CCP : *CCP-53290*
+
+*{color:#0000FF}Workflow{color}*
+Run Jenkins job: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_switch/
+* Env : *prod*
+* Version : *26-c598910*
+* Project : *platform*
+* Restart : [check]
+* CCP : *CCP-53290*
+
+-------Comments in the Build Ticket-------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*{color:#0000FF}TP Release Day{color}*
+- after getting a go ahead from the TP QE folks; we merge the *release-branch* (BUILD-4430) to *master* 
+- After this we work on generating the Versions for our Change (CCP-53290), which also includes building-n-deploying the new distribution to the various servers in *WWW/Platform/Workflow* .
+*Release-runlist* :
+-- {color:#00F}Web2print{color} :
+--- https://gh.internal.shutterfly.com/shutterfly/tp-web2print/commits/master
+{code}
+d80084f00d1ae10284070dcf8637321ae556d80c
+{code}
+_*Nothing has changed, so we are not building the Web2Print env.*_
+--- {color:#00F}WWW{color} :
+{code}
+4b09e50071165d01aa90b32fc1c90c0117f30b27
+{code}
+--- Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_www_build.save/28/console
+{code}
+Project			:  www
+Env				:  prod
+{code}
+{code}
+16:12:49 + echo 28-4b09e50
+16:13:32 + echo www_prod_28-4b09e50
+16:13:32 www_prod_28-4b09e50
+{code}
+--- Deploy WWW: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/128/console + https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/131/parameters/
++ https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/119/console
+TP Serverlist/Build Enable: https://servers.internal.tinyprints.com/
+{code}
+Project			:  www
+Version			:  28-4b09e50
+Env				:  prod
+{code}
+--- Switching WWW: https://build.stage.shutterfly.com/job/prod_switch/33/parameters/
+{code}
+Project			:	www
+Env				:	prod
+Version			:	28-4b09e50
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+--- Deploy Workflow: https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/129/parameters/ + https://build.stage.shutterfly.com/view/TP-Prod/job/prod_www_deploy_save/130/parameters/
+{code}
+Project			:	www
+Version			:	28-4b09e50
+Env				:	workflow
+{code}
+--- Switching Workflow: https://build.stage.shutterfly.com/job/prod_switch/34/parameters/
+{code}
+Project			:	www
+Env				:	workflow
+Version			:	28-4b09e50
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+---- Deployment Records were created with: https://gh.internal.shutterfly.com/shutterfly/re-deployment-records/blob/master/tp-www/prod/deploy.yml
+{code}
+record-version: 1.0
+deployment:
+  application: tp-www
+  environment: prod
+  release: 28-4b09e50
+  version: 28-4b09e50
+  origin:
+    - file://tp-slave01.internal.tinyprints.com/data/tp/www/workflow/www_workflow_28-4b09e50
+  timestamp: 20161021-103320
+{code}
+-- {color:#00F}Platform{color} :
+https://gh.internal.shutterfly.com/shutterfly/tp-platform/commits/master
+{code}
+823d1584c9a2de7802be386106f0b96329027c19
+{code}
+---- Building the Distribution with the correct version using: https://china.stage.shutterfly.com/job/prod_platform_build.save/23/console
+{code}
+16:14:11 + Version=23-823d158
+16:14:22 + echo platform_prod_23-823d158
+16:14:22 platform_prod_23-823d158
+{code}
+---- Deploy:  https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/50/console + https://china.stage.shutterfly.com/view/TP-Prod/job/prod_platform_deploy/51/console
+{code}
+Project			:  platform
+Environment		:  prod
+Version			:  23-823d158
+{code}
+---- Switching Platform: https://build.stage.shutterfly.com/job/prod_switch/32/parameters/
+{code}
+Project			:	platform
+Env				:	prod
+Version			:	23-823d158
+Servers			:	
+Restart			:	[checked]
+CCP				:	CCP-53290
+{code}
+---- Deployment Records were created with: https://gh.internal.shutterfly.com/shutterfly/re-deployment-records/blob/master/tp-platform/prod/deploy.yml
+{code}---
+record-version: 1.0
+deployment:
+  application: tp-platform
+  environment: prod
+  release: 23-823d158
+  version: 23-823d158
+  origin:
+    - file://hoard.stage.shutterfly.com/data/tp/platform/prod/platform_prod_23-823d158
+  timestamp: 20161021-101511
+{code}
+-- https://www.tinyprints.com/version.php		*www_prod_28-4b09e50*
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
